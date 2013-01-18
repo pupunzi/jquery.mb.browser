@@ -20,7 +20,7 @@
 
 /*******************************************************************************
  *
- * jquery.browser
+ * jquery.mb.browser
  * Author: pupunzi
  * Creation date: 16/01/13
  *
