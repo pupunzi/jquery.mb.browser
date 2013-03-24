@@ -29,9 +29,7 @@
 
 (function($){
 
-	var jQversion = jQuery.fn.jquery.split(".");
-	if(jQversion[1]<8)
-		return;
+	if(jQuery.browser) return;
 
 	jQuery.browser = {};
 	jQuery.browser.mozilla = false;
