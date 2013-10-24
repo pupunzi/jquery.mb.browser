@@ -14,7 +14,7 @@
  *  http://www.opensource.org/licenses/mit-license.php
  *  http://www.gnu.org/licenses/gpl.html
  *
- *  last modified: 17/01/13 0.12
+ *  last modified: 02/10/13 22.42
  *  *****************************************************************************
  */
 
@@ -38,6 +38,8 @@
 	jQuery.browser.msie = false;
 
 	var nAgt = navigator.userAgent;
+	jQuery.browser.ua = nAgt;
+
 	jQuery.browser.name  = navigator.appName;
 	jQuery.browser.fullVersion  = ''+parseFloat(navigator.appVersion);
 	jQuery.browser.majorVersion = parseInt(navigator.appVersion,10);
@@ -65,6 +67,14 @@
 	}
 // In Safari, the true version is after "Safari" or after "Version"
 	else if ((verOffset=nAgt.indexOf("Safari"))!=-1) {
+		jQuery.browser.webkit = true;
+		jQuery.browser.name = "Safari";
+		jQuery.browser.fullVersion = nAgt.substring(verOffset+7);
+		if ((verOffset=nAgt.indexOf("Version"))!=-1)
+			jQuery.browser.fullVersion = nAgt.substring(verOffset+8);
+	}
+// In Safari, the true version is after "Safari" or after "Version"
+	else if ((verOffset=nAgt.indexOf("AppleWebkit"))!=-1) {
 		jQuery.browser.webkit = true;
 		jQuery.browser.name = "Safari";
 		jQuery.browser.fullVersion = nAgt.substring(verOffset+7);
