@@ -1,0 +1,58 @@
+<!doctype html>
+
+<!--
+  ~ /*******************************************************************************
+  ~  jquery.mb.components
+  ~  file: demo.html
+  ~
+  ~  Copyright (c) 2001-2013. Matteo Bicocchi (Pupunzi);
+  ~  Open lab srl, Firenze - Italy
+  ~  email: matteo@open-lab.com
+  ~  site: 	http://pupunzi.com
+  ~  blog:	http://pupunzi.open-lab.com
+  ~ 	http://open-lab.com
+  ~
+  ~  Licences: MIT, GPL
+  ~  http://www.opensource.org/licenses/mit-license.php
+  ~  http://www.gnu.org/licenses/gpl.html
+  ~
+  ~  last modified: 02/10/13 22.42
+  ~  ******************************************************************************/
+  -->
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>mb.browser</title>
+
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+    <script type="text/javascript" src="jquery.mb.browser.min.js"></script>
+    <script type="text/javascript">
+
+        $(function(){
+            var txt = ''
+                    +'jQuery.browser.ua  = '+jQuery.browser.ua+'<br>'
+                    +'jQuery.browser.name  = '+jQuery.browser.name+'<br>'
+                    +'jQuery.browser.fullVersion  = '+jQuery.browser.fullVersion+'<br>'
+                    +'jQuery.browser.version = '+jQuery.browser.version+'<br><br><br>'
+                    +'jQuery.browser.msie = '+jQuery.browser.msie+'<br>'
+                    +'jQuery.browser.mozilla = '+jQuery.browser.mozilla+'<br>'
+                    +'jQuery.browser.opera = '+jQuery.browser.opera+'<br>'
+                    +'jQuery.browser.webkit = '+jQuery.browser.webkit+'<br>';
+
+            $("#result").html(txt);
+
+        });
+
+    </script>
+</head>
+<body >
+<div class="wrapper">
+    <h1>mb.browser.demo</h1>
+
+    <div id="result"></div>
+</div>
+
+</body>
+</html>
