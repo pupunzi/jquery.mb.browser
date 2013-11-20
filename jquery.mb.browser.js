@@ -27,10 +27,7 @@
  ******************************************************************************/
 /*Browser detection patch*/
 
-(function($){
-
-	if(jQuery.browser) return;
-
+if(!jQuery.browser){
 	jQuery.browser = {};
 	jQuery.browser.mozilla = false;
 	jQuery.browser.webkit = false;
@@ -55,13 +52,13 @@
 	}
 
 // In MSIE, the true version is after "MSIE" in userAgent
-	else if ((verOffset=nAgt.indexOf(/MSIE/))!=-1 || nAgt.indexOf(/Trident/)!=-1 ) {
+	else if ( (verOffset=nAgt.indexOf("MSIE"))!=-1 || nAgt.indexOf("Trident")!=-1 ) {
 		jQuery.browser.msie = true;
 		jQuery.browser.name = "Microsoft Internet Explorer";
 		jQuery.browser.fullVersion = nAgt.substring(verOffset+5);
 
-		if(nAgt.indexOf(/Trident/)!=-1)
-			jQuery.browser.fullVersion = nAgt.substring(nAgt.indexOf(/rv/)+3);
+		if(nAgt.indexOf("Trident")!=-1)
+			jQuery.browser.fullVersion = nAgt.substring(nAgt.indexOf("rv:")+3);
 	}
 
 // In Chrome, the true version is after "Chrome"
@@ -112,4 +109,4 @@
 		jQuery.browser.majorVersion = parseInt(navigator.appVersion,10);
 	}
 	jQuery.browser.version = jQuery.browser.majorVersion;
-})(jQuery)
+}
