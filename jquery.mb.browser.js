@@ -53,12 +53,17 @@
 		if ((verOffset=nAgt.indexOf("Version"))!=-1)
 			jQuery.browser.fullVersion = nAgt.substring(verOffset+8);
 	}
+
 // In MSIE, the true version is after "MSIE" in userAgent
-	else if ((verOffset=nAgt.indexOf("MSIE"))!=-1) {
+	else if ((verOffset=nAgt.indexOf(/MSIE/))!=-1 || nAgt.indexOf(/Trident/)!=-1 ) {
 		jQuery.browser.msie = true;
 		jQuery.browser.name = "Microsoft Internet Explorer";
 		jQuery.browser.fullVersion = nAgt.substring(verOffset+5);
+
+		if(nAgt.indexOf(/Trident/)!=-1)
+			jQuery.browser.fullVersion = nAgt.substring(nAgt.indexOf(/rv/)+3);
 	}
+
 // In Chrome, the true version is after "Chrome"
 	else if ((verOffset=nAgt.indexOf("Chrome"))!=-1) {
 		jQuery.browser.webkit = true;
@@ -88,9 +93,7 @@
 		jQuery.browser.fullVersion = nAgt.substring(verOffset+8);
 	}
 // In most other browsers, "name/version" is at the end of userAgent
-	else if ( (nameOffset=nAgt.lastIndexOf(' ')+1) <
-			(verOffset=nAgt.lastIndexOf('/')) )
-	{
+	else if ( (nameOffset=nAgt.lastIndexOf(' ')+1) < (verOffset=nAgt.lastIndexOf('/')) ){
 		jQuery.browser.name = nAgt.substring(nameOffset,verOffset);
 		jQuery.browser.fullVersion = nAgt.substring(verOffset+1);
 		if (jQuery.browser.name.toLowerCase()==jQuery.browser.name.toUpperCase()) {
