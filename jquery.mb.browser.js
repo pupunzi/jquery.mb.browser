@@ -27,9 +27,7 @@
  ******************************************************************************/
 /*Browser detection patch*/
 
-(function($){
-
-	if(jQuery.browser) return;
+if(!jQuery.browser){
 
 	jQuery.browser = {};
 	jQuery.browser.mozilla = false;
@@ -118,4 +116,5 @@
 		jQuery.browser.majorVersion = parseInt(navigator.appVersion,10);
 	}
 	jQuery.browser.version = jQuery.browser.majorVersion;
-})(jQuery)
+
+}
