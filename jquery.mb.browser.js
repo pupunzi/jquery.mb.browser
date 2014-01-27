@@ -3,7 +3,7 @@
  *  jquery.mb.components
  *  file: jquery.mb.browser.js
  *
- *  Copyright (c) 2001-2013. Matteo Bicocchi (Pupunzi);
+ *  Copyright (c) 2001-2014. Matteo Bicocchi (Pupunzi);
  *  Open lab srl, Firenze - Italy
  *  email: matteo@open-lab.com
  *  site: 	http://pupunzi.com
@@ -14,7 +14,7 @@
  *  http://www.opensource.org/licenses/mit-license.php
  *  http://www.gnu.org/licenses/gpl.html
  *
- *  last modified: 02/10/13 22.42
+ *  last modified: 27/01/14 19.58
  *  *****************************************************************************
  */
 
@@ -33,6 +33,8 @@ if(!jQuery.browser){
 	jQuery.browser.mozilla = false;
 	jQuery.browser.webkit = false;
 	jQuery.browser.opera = false;
+	jQuery.browser.safari = false;
+	jQuery.browser.chrome = false;
 	jQuery.browser.msie = false;
 
 	var nAgt = navigator.userAgent;
@@ -71,12 +73,14 @@ if(!jQuery.browser){
 // In Chrome, the true version is after "Chrome"
 	else if ((verOffset=nAgt.indexOf("Chrome"))!=-1) {
 		jQuery.browser.webkit = true;
+		jQuery.browser.chrome = true;
 		jQuery.browser.name = "Chrome";
 		jQuery.browser.fullVersion = nAgt.substring(verOffset+7);
 	}
 // In Safari, the true version is after "Safari" or after "Version"
 	else if ((verOffset=nAgt.indexOf("Safari"))!=-1) {
 		jQuery.browser.webkit = true;
+		jQuery.browser.safari = true;
 		jQuery.browser.name = "Safari";
 		jQuery.browser.fullVersion = nAgt.substring(verOffset+7);
 		if ((verOffset=nAgt.indexOf("Version"))!=-1)
