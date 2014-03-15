@@ -14,7 +14,7 @@
  *  http://www.opensource.org/licenses/mit-license.php
  *  http://www.gnu.org/licenses/gpl.html
  *
- *  last modified: 27/01/14 19.58
+ *  last modified: 13/03/14 22.30
  *  *****************************************************************************
  */
 
@@ -27,6 +27,8 @@
  ******************************************************************************/
 /*Browser detection patch*/
 
+var nAgt = navigator.userAgent;
+
 if(!jQuery.browser){
 
 	jQuery.browser = {};
@@ -37,7 +39,6 @@ if(!jQuery.browser){
 	jQuery.browser.chrome = false;
 	jQuery.browser.msie = false;
 
-	var nAgt = navigator.userAgent;
 	jQuery.browser.ua = nAgt;
 
 	jQuery.browser.name  = navigator.appName;
@@ -108,6 +109,7 @@ if(!jQuery.browser){
 			jQuery.browser.name = navigator.appName;
 		}
 	}
+
 // trim the fullVersion string at semicolon/space if present
 	if ((ix=jQuery.browser.fullVersion.indexOf(";"))!=-1)
 		jQuery.browser.fullVersion=jQuery.browser.fullVersion.substring(0,ix);
@@ -122,3 +124,12 @@ if(!jQuery.browser){
 	jQuery.browser.version = jQuery.browser.majorVersion;
 
 }
+
+/*Check all mobile environments*/
+jQuery.browser.android = (/Android/i).test(nAgt);
+jQuery.browser.blackberry = (/BlackBerry/i).test(nAgt);
+jQuery.browser.ios = (/iPhone|iPad|iPod/i).test(nAgt);
+jQuery.browser.operaMobile = (/Opera Mini/i).test(nAgt);
+jQuery.browser.windowsMobile = (/IEMobile/i).test(nAgt);
+jQuery.browser.mobile = jQuery.browser.android || jQuery.browser.blackberry || jQuery.browser.ios || jQuery.browser.windowsMobile || jQuery.browser.operaMobile;
+
