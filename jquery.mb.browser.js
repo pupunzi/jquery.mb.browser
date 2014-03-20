@@ -55,6 +55,13 @@ if(!jQuery.browser){
 			jQuery.browser.fullVersion = nAgt.substring(verOffset+8);
 	}
 
+// In Opera > 20 the true version is after "OPR"
+	else if ((verOffset=nAgt.indexOf("OPR"))!=-1) {
+		jQuery.browser.opera = true;
+		jQuery.browser.name = "Opera";
+		jQuery.browser.fullVersion = nAgt.substring(verOffset+4);
+	}
+	
 // In MSIE < 11, the true version is after "MSIE" in userAgent
 	else if ( (verOffset=nAgt.indexOf("MSIE"))!=-1) {
 		jQuery.browser.msie = true;
