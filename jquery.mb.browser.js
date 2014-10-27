@@ -134,9 +134,11 @@ if(!jQuery.browser){
 
 /*Check all mobile environments*/
 jQuery.browser.android = (/Android/i).test(nAgt);
-jQuery.browser.blackberry = (/BlackBerry/i).test(nAgt);
-jQuery.browser.ios = (/iPhone|iPad|iPod/i).test(nAgt);
+jQuery.browser.blackberry = /BlackBerry|BB|PlayBook/i.test(nAgt);
+jQuery.browser.ios = /iPhone|iPad|iPod|webOS/i.test(nAgt);
 jQuery.browser.operaMobile = (/Opera Mini/i).test(nAgt);
-jQuery.browser.windowsMobile = (/IEMobile/i).test(nAgt);
-jQuery.browser.mobile = jQuery.browser.android || jQuery.browser.blackberry || jQuery.browser.ios || jQuery.browser.windowsMobile || jQuery.browser.operaMobile;
+jQuery.browser.windowsMobile = /IEMobile|Windows Phone/i.test(nAgt);
+jQuery.browser.kindle = /Kindle|Silk/i.test(nAgt);
+
+jQuery.browser.mobile = jQuery.browser.android || jQuery.browser.blackberry || jQuery.browser.ios || jQuery.browser.windowsMobile || jQuery.browser.operaMobile || jQuery.browser.kindle;
 
