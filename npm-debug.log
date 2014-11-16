@@ -1,0 +1,110 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'publish' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.33
+4 verbose publish [ '.' ]
+5 verbose cache add [ '.', null ]
+6 verbose cache add name=undefined spec="." args=[".",null]
+7 verbose parsed url { protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: '.',
+7 verbose parsed url   path: '.',
+7 verbose parsed url   href: '.' }
+8 silly lockFile 3a52ce78- .
+9 verbose lock . /Users/pupunzi/.npm/3a52ce78-.lock
+10 verbose tar pack [ '/Users/pupunzi/.npm/jquery.mb.browser/1.0.0/package.tgz',
+10 verbose tar pack   '.' ]
+11 verbose tarball /Users/pupunzi/.npm/jquery.mb.browser/1.0.0/package.tgz
+12 verbose folder .
+13 info prepublish jquery.mb.browser@1.0.0
+14 silly lockFile 1f1177db-tar tar://.
+15 verbose lock tar://. /Users/pupunzi/.npm/1f1177db-tar.lock
+16 silly lockFile d2079a15-ery-mb-browser-1-0-0-package-tgz tar:///Users/pupunzi/.npm/jquery.mb.browser/1.0.0/package.tgz
+17 verbose lock tar:///Users/pupunzi/.npm/jquery.mb.browser/1.0.0/package.tgz /Users/pupunzi/.npm/d2079a15-ery-mb-browser-1-0-0-package-tgz.lock
+18 silly lockFile 1f1177db-tar tar://.
+19 silly lockFile 1f1177db-tar tar://.
+20 silly lockFile d2079a15-ery-mb-browser-1-0-0-package-tgz tar:///Users/pupunzi/.npm/jquery.mb.browser/1.0.0/package.tgz
+21 silly lockFile d2079a15-ery-mb-browser-1-0-0-package-tgz tar:///Users/pupunzi/.npm/jquery.mb.browser/1.0.0/package.tgz
+22 silly lockFile 5fab2baf--jquery-mb-browser-1-0-0-package /Users/pupunzi/.npm/jquery.mb.browser/1.0.0/package
+23 verbose lock /Users/pupunzi/.npm/jquery.mb.browser/1.0.0/package /Users/pupunzi/.npm/5fab2baf--jquery-mb-browser-1-0-0-package.lock
+24 silly lockFile 5fab2baf--jquery-mb-browser-1-0-0-package /Users/pupunzi/.npm/jquery.mb.browser/1.0.0/package
+25 silly lockFile 5fab2baf--jquery-mb-browser-1-0-0-package /Users/pupunzi/.npm/jquery.mb.browser/1.0.0/package
+26 silly lockFile 3a52ce78- .
+27 silly lockFile 3a52ce78- .
+28 silly publish { name: 'jquery.mb.browser',
+28 silly publish   version: '1.0.0',
+28 silly publish   description: 'It replace the \'browser\' object removed from jQuery 1.8 >',
+28 silly publish   main: 'jquery.mb.browser.js',
+28 silly publish   keywords: [ 'jquery-plugin', 'browser', 'user agent', 'mobile' ],
+28 silly publish   scripts: { test: 'echo "Error: no test specified" && exit 1' },
+28 silly publish   licenses:
+28 silly publish    [ { type: 'MIT',
+28 silly publish        url: 'https://github.com/pupunzi/jquery.mb.menu/blob/master/licenses/MIT-LICENSE.txt' },
+28 silly publish      { type: 'GPL',
+28 silly publish        url: 'https://github.com/pupunzi/jquery.mb.menu/blob/master/licenses/GPL-LICENSE.txt' } ],
+28 silly publish   repository:
+28 silly publish    { type: 'git',
+28 silly publish      url: 'https://github.com/pupunzi/jquery.mb.browser.git' },
+28 silly publish   author: '',
+28 silly publish   license: 'ISC',
+28 silly publish   bugs: { url: 'https://github.com/pupunzi/jquery.mb.browser/issues' },
+28 silly publish   homepage: 'https://github.com/pupunzi/jquery.mb.browser',
+28 silly publish   readme: 'jquery.mb.browser\n=================\n\njquery.mb.browser replaces the jQuery $.browser method removed from v. 1.9.\nIt\'s hardly recommended to use feature detection instead, but if you need to know what browser and what version this reintroduce the $.browser object that returns all the browser properties:\n\nEx:\n\n            var txt = \'\'\n                    +\'jQuery.browser.ua  = \'+jQuery.browser.ua+\'<br>\'\n                    +\'jQuery.browser.name  = \'+jQuery.browser.name+\'<br>\'\n                    +\'jQuery.browser.fullVersion  = \'+jQuery.browser.fullVersion+\'<br>\'\n                    +\'jQuery.browser.version = \'+jQuery.browser.version+\'<br><br><br>\'\n                    +\'jQuery.browser.msie = \'+jQuery.browser.msie+\'<br>\'\n                    +\'jQuery.browser.mozilla = \'+jQuery.browser.mozilla+\'<br>\'\n                    +\'jQuery.browser.opera = \'+jQuery.browser.opera+\'<br>\'\n                    +\'jQuery.browser.webkit = \'+jQuery.browser.webkit+\'<br>\';\n            $("#result").html(txt);\n',
+28 silly publish   readmeFilename: 'README.md',
+28 silly publish   gitHead: 'c50ee5d36e6ab1191795712da5357a6c09913e3b',
+28 silly publish   _id: 'jquery.mb.browser@1.0.0',
+28 silly publish   _shasum: 'c06a9d94075431a4f3982280471c6688f00181d9',
+28 silly publish   _from: '.' }
+29 verbose request where is /jquery.mb.browser
+30 verbose request registry https://registry.npmjs.org/
+31 verbose request id 0750b81e4f7e9d28
+32 verbose url raw /jquery.mb.browser
+33 verbose url resolving [ 'https://registry.npmjs.org/', './jquery.mb.browser' ]
+34 verbose url resolved https://registry.npmjs.org/jquery.mb.browser
+35 verbose request where is https://registry.npmjs.org/jquery.mb.browser
+36 info trying registry request attempt 1 at 19:33:17
+37 http PUT https://registry.npmjs.org/jquery.mb.browser
+38 http 403 https://registry.npmjs.org/jquery.mb.browser
+39 verbose headers { date: 'Sun, 16 Nov 2014 18:33:18 GMT',
+39 verbose headers   server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+39 verbose headers   'content-type': 'application/json',
+39 verbose headers   'cache-control': 'max-age=60',
+39 verbose headers   'content-length': '3861',
+39 verbose headers   'accept-ranges': 'bytes',
+39 verbose headers   via: '1.1 varnish',
+39 verbose headers   'x-served-by': 'cache-fra1231-FRA',
+39 verbose headers   'x-cache': 'MISS',
+39 verbose headers   'x-cache-hits': '0',
+39 verbose headers   'x-timer': 'S1416162797.462167,VS0,VE676',
+39 verbose headers   'keep-alive': 'timeout=10, max=50',
+39 verbose headers   connection: 'Keep-Alive' }
+40 error publish Failed PUT 403
+41 error Error: forbidden cannot modify pre-existing version: 1.0.0
+41 error old={"name":"jquery.mb.browser","version":"1.0.0","description":"It replace the 'browser' object removed from jQuery 1.8 >","main":"jquery.mb.browser.js","keywords":["jquery-plugin","browser","user agent","mobile"],"scripts":{"test":"echo \"Error: no test specified\" && exit 1"},"licenses":[{"type":"MIT","url":"https://github.com/pupunzi/jquery.mb.menu/blob/master/licenses/MIT-LICENSE.txt"},{"type":"GPL","url":"https://github.com/pupunzi/jquery.mb.menu/blob/master/licenses/GPL-LICENSE.txt"}],"repository":{"type":"git","url":"https://github.com/pupunzi/jquery.mb.browser.git"},"author":"","license":"ISC","bugs":{"url":"https://github.com/pupunzi/jquery.mb.browser/issues"},"homepage":"https://github.com/pupunzi/jquery.mb.browser","gitHead":"c50ee5d36e6ab1191795712da5357a6c09913e3b","_id":"jquery.mb.browser@1.0.0","_shasum":"c06a9d94075431a4f3982280471c6688f00181d9","_from":".","_npmVersion":"1.4.28","_npmUser":{"name":"pupunzi","email":"matbicoc@gmail.com"},"maintainers":[{"name":"pupunzi","email":"matbicoc@gmail.com"}],"dist":{"shasum":"c06a9d94075431a4f3982280471c6688f00181d9","tarball":"http://registry.npmjs.org/jquery.mb.browser/-/jquery.mb.browser-1.0.0.tgz"}}
+41 error new={"name":"jquery.mb.browser","version":"1.0.0","description":"It replace the 'browser' object removed from jQuery 1.8 >","main":"jquery.mb.browser.js","keywords":["jquery-plugin","browser","user agent","mobile"],"scripts":{"test":"echo \"Error: no test specified\" && exit 1"},"licenses":[{"type":"MIT","url":"https://github.com/pupunzi/jquery.mb.menu/blob/master/licenses/MIT-LICENSE.txt"},{"type":"GPL","url":"https://github.com/pupunzi/jquery.mb.menu/blob/master/licenses/GPL-LICENSE.txt"}],"repository":{"type":"git","url":"https://github.com/pupunzi/jquery.mb.browser.git"},"author":"","license":"ISC","bugs":{"url":"https://github.com/pupunzi/jquery.mb.browser/issues"},"homepage":"https://github.com/pupunzi/jquery.mb.browser","readme":"jquery.mb.browser\u000a=================\u000a\u000ajquery.mb.browser replaces the jQuery $.browser method removed from v. 1.9.\u000aIt's hardly recommended to use feature detection instead, but if you need to know what browser and what version this reintroduce the $.browser object that returns all the browser properties:\u000a\u000aEx:\u000a\u000a            var txt = ''\u000a                    +'jQuery.browser.ua  = '+jQuery.browser.ua+'<br>'\u000a                    +'jQuery.browser.name  = '+jQuery.browser.name+'<br>'\u000a                    +'jQuery.browser.fullVersion  = '+jQuery.browser.fullVersion+'<br>'\u000a                    +'jQuery.browser.version = '+jQuery.browser.version+'<br><br><br>'\u000a                    +'jQuery.browser.msie = '+jQuery.browser.msie+'<br>'\u000a                    +'jQuery.browser.mozilla = '+jQuery.browser.mozilla+'<br>'\u000a                    +'jQuery.browser.opera = '+jQuery.browser.opera+'<br>'\u000a                    +'jQuery.browser.webkit = '+jQuery.browser.webkit+'<br>';\u000a            $(\"#result\").html(txt);\u000a","readmeFilename":"README.md","gitHead":"c50ee5d36e6ab1191795712da5357a6c09913e3b","_id":"jquery.mb.browser@1.0.0","_shasum":"c06a9d94075431a4f3982280471c6688f00181d9","_from":".","_npmVersion":"1.4.28","_npmUser":{"name":"pupunzi","email":"matbicoc@gmail.com"},"maintainers":[{"name":"pupunzi","email":"matbicoc@gmail.com"}],"dist":{"shasum":"c06a9d94075431a4f3982280471c6688f00181d9","tarball":"http://registry.npmjs.org/jquery.mb.browser/-/jquery.mb.browser-1.0.0.tgz"}}: jquery.mb.browser
+41 error     at RegClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:308:14)
+41 error     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:246:65)
+41 error     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:236:22)
+41 error     at Request.emit (events.js:98:17)
+41 error     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1142:14)
+41 error     at Request.emit (events.js:117:20)
+41 error     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1096:12)
+41 error     at IncomingMessage.emit (events.js:117:20)
+41 error     at _stream_readable.js:943:16
+41 error     at process._tickCallback (node.js:419:13)
+42 error If you need help, you may report this *entire* log,
+42 error including the npm and node versions, at:
+42 error     <http://github.com/npm/npm/issues>
+43 error System Darwin 14.0.0
+44 error command "node" "/usr/local/bin/npm" "publish"
+45 error cwd /Users/pupunzi/development/mb.components/jquery.mb.browser
+46 error node -v v0.10.33
+47 error npm -v 1.4.28
+48 verbose exit [ 1, true ]
