@@ -142,3 +142,5 @@ jQuery.browser.kindle = /Kindle|Silk/i.test(nAgt);
 
 jQuery.browser.mobile = jQuery.browser.android || jQuery.browser.blackberry || jQuery.browser.ios || jQuery.browser.windowsMobile || jQuery.browser.operaMobile || jQuery.browser.kindle;
 
+jQuery.isMobile = jQuery.browser.mobile;
+jQuery.isTablet = jQuery.isMobile && jQuery(window).width() > 750;
