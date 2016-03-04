@@ -37,6 +37,7 @@ if(!jQuery.browser){
 	jQuery.browser.opera = false;
 	jQuery.browser.safari = false;
 	jQuery.browser.chrome = false;
+	jQuery.browser.androidStock = false;
 	jQuery.browser.msie = false;
 
 	jQuery.browser.ua = nAgt;
@@ -77,7 +78,6 @@ if(!jQuery.browser){
 		var end = start+4;
 		jQuery.browser.fullVersion = nAgt.substring(start,end);
 	}
-
 // In Chrome, the true version is after "Chrome"
 	else if ((verOffset=nAgt.indexOf("Chrome"))!=-1) {
 		jQuery.browser.webkit = true;
@@ -85,6 +85,17 @@ if(!jQuery.browser){
 		jQuery.browser.name = "Chrome";
 		jQuery.browser.fullVersion = nAgt.substring(verOffset+7);
 	}
+
+// Android stock browser
+	else if ( ((nAgt.indexOf('mozilla/5.0') > -1 && nAgt.indexOf('android ') > -1 && nAgt.indexOf('applewebkit') > -1) && !(nAgt.indexOf('chrome') > -1)) ) {
+
+		verOffset=nAgt.indexOf("Chrome");
+		jQuery.browser.webkit = true;
+		jQuery.browser.androidStock = true;
+		jQuery.browser.name = "androidStock";
+		jQuery.browser.fullVersion = nAgt.substring(verOffset+7);
+	}
+
 // In Safari, the true version is after "Safari" or after "Version"
 	else if ((verOffset=nAgt.indexOf("Safari"))!=-1) {
 		jQuery.browser.webkit = true;
@@ -94,9 +105,11 @@ if(!jQuery.browser){
 		if ((verOffset=nAgt.indexOf("Version"))!=-1)
 			jQuery.browser.fullVersion = nAgt.substring(verOffset+8);
 	}
+
 // In Safari, the true version is after "Safari" or after "Version"
 	else if ((verOffset=nAgt.indexOf("AppleWebkit"))!=-1) {
 		jQuery.browser.webkit = true;
+		jQuery.browser.safari = true;
 		jQuery.browser.name = "Safari";
 		jQuery.browser.fullVersion = nAgt.substring(verOffset+7);
 		if ((verOffset=nAgt.indexOf("Version"))!=-1)
@@ -108,6 +121,7 @@ if(!jQuery.browser){
 		jQuery.browser.name = "Firefox";
 		jQuery.browser.fullVersion = nAgt.substring(verOffset+8);
 	}
+
 // In most other browsers, "name/version" is at the end of userAgent
 	else if ( (nameOffset=nAgt.lastIndexOf(' ')+1) < (verOffset=nAgt.lastIndexOf('/')) ){
 		jQuery.browser.name = nAgt.substring(nameOffset,verOffset);
