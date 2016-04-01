@@ -31,6 +31,16 @@ var nAgt = navigator.userAgent;
 
 if(!jQuery.browser){
 
+	function isTouchSupported() {
+		var msTouchEnabled = nAgt.msMaxTouchPoints;
+		var generalTouchEnabled = "ontouchstart" in document.createElement("div");
+
+		if (msTouchEnabled || generalTouchEnabled) {
+			return true;
+		}
+		return false;
+	}
+
 	jQuery.browser = {};
 	jQuery.browser.mozilla = false;
 	jQuery.browser.webkit = false;
@@ -39,6 +49,8 @@ if(!jQuery.browser){
 	jQuery.browser.chrome = false;
 	jQuery.browser.androidStock = false;
 	jQuery.browser.msie = false;
+
+	jQuery.browser.hasTouch = isTouchSupported();
 
 	jQuery.browser.ua = nAgt;
 
