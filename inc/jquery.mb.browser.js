@@ -71,7 +71,7 @@ if(!jQuery.browser){
 	}
 
 // In TRIDENT (IE11) => 11, the true version is after "rv:" in userAgent
-	else if (nAgt.indexOf("Trident")!=-1 ) {
+	else if (nAgt.indexOf("Trident")!=-1 ||  nAgt.indexOf("Edge") != -1) {
 		jQuery.browser.msie = true;
 		jQuery.browser.name = "Microsoft Internet Explorer";
 		var start = nAgt.indexOf("rv:")+3;
