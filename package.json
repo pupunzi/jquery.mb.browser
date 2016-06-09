@@ -1,6 +1,6 @@
 {
   "name": "jquery.mb.browser",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "It replace the 'browser' object removed from jQuery 1.8 >",
   "main": "jquery.mb.browser.js",
 	"keywords": [
