@@ -1,0 +1,13 @@
+{
+  "name": "jquery.mb.browser",
+  "description": "It replace the 'browser' object removed from jQuery 1.8 >",
+  "main": "./inc/jquery.mb.browser.js",
+  "keywords": [
+		"jquery-plugin",
+		"browser",
+		"user agent",
+		"mobile"
+	],
+  "license": "MIT",
+  "homepage": "https://github.com/pupunzi/jquery.mb.browser"
+}
