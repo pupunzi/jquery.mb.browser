@@ -29,7 +29,7 @@
 
 var nAgt = navigator.userAgent;
 
-if(!jQuery.browser){
+if (!jQuery.browser) {
 
 	function isTouchSupported() {
 		var msTouchEnabled = nAgt.msMaxTouchPoints;
@@ -49,110 +49,116 @@ if(!jQuery.browser){
 	jQuery.browser.chrome = false;
 	jQuery.browser.androidStock = false;
 	jQuery.browser.msie = false;
+	jQuery.browser.edge = false;
 
 	jQuery.browser.hasTouch = isTouchSupported();
 
 	jQuery.browser.ua = nAgt;
 
-	jQuery.browser.name  = navigator.appName;
-	jQuery.browser.fullVersion  = ''+parseFloat(navigator.appVersion);
-	jQuery.browser.majorVersion = parseInt(navigator.appVersion,10);
-	var nameOffset,verOffset,ix;
+	jQuery.browser.name = navigator.appName;
+	jQuery.browser.fullVersion = '' + parseFloat(navigator.appVersion);
+	jQuery.browser.majorVersion = parseInt(navigator.appVersion, 10);
+	var nameOffset, verOffset, ix;
 
 // In Opera, the true version is after "Opera" or after "Version"
-	if ((verOffset=nAgt.indexOf("Opera"))!=-1) {
+	if ((verOffset = nAgt.indexOf("Opera")) != -1) {
 		jQuery.browser.opera = true;
 		jQuery.browser.name = "Opera";
-		jQuery.browser.fullVersion = nAgt.substring(verOffset+6);
-		if ((verOffset=nAgt.indexOf("Version"))!=-1)
-			jQuery.browser.fullVersion = nAgt.substring(verOffset+8);
+		jQuery.browser.fullVersion = nAgt.substring(verOffset + 6);
+		if ((verOffset = nAgt.indexOf("Version")) != -1)
+			jQuery.browser.fullVersion = nAgt.substring(verOffset + 8);
 	}
 
 // In Opera > 20 the true version is after "OPR"
-	else if ((verOffset=nAgt.indexOf("OPR"))!=-1) {
+	else if ((verOffset = nAgt.indexOf("OPR")) != -1) {
 		jQuery.browser.opera = true;
 		jQuery.browser.name = "Opera";
-		jQuery.browser.fullVersion = nAgt.substring(verOffset+4);
+		jQuery.browser.fullVersion = nAgt.substring(verOffset + 4);
 	}
-	
+
 // In MSIE < 11, the true version is after "MSIE" in userAgent
-	else if ( (verOffset=nAgt.indexOf("MSIE"))!=-1) {
+	else if ((verOffset = nAgt.indexOf("MSIE")) != -1) {
 		jQuery.browser.msie = true;
 		jQuery.browser.name = "Microsoft Internet Explorer";
-		jQuery.browser.fullVersion = nAgt.substring(verOffset+5);
+		jQuery.browser.fullVersion = nAgt.substring(verOffset + 5);
 	}
 
 // In TRIDENT (IE11) => 11, the true version is after "rv:" in userAgent
-	else if (nAgt.indexOf("Trident")!=-1 ||  nAgt.indexOf("Edge") != -1) {
+	else if (nAgt.indexOf("Trident") != -1) {
 		jQuery.browser.msie = true;
 		jQuery.browser.name = "Microsoft Internet Explorer";
-		var start = nAgt.indexOf("rv:")+3;
-		var end = start+4;
-		jQuery.browser.fullVersion = nAgt.substring(start,end);
+		var start = nAgt.indexOf("rv:") + 3;
+		var end = start + 4;
+		jQuery.browser.fullVersion = nAgt.substring(start, end);
+	}
+	else if ( (verOffset = nAgt.indexOf("Edge")) != -1) {
+		jQuery.browser.edge = true;
+		jQuery.browser.name = "Microsoft Edge";
+		jQuery.browser.fullVersion = nAgt.substring(verOffset + 5);
 	}
 // In Chrome, the true version is after "Chrome"
-	else if ((verOffset=nAgt.indexOf("Chrome"))!=-1) {
+	else if ((verOffset = nAgt.indexOf("Chrome")) != -1 && nAgt.indexOf("Edge") == 0) {
 		jQuery.browser.webkit = true;
 		jQuery.browser.chrome = true;
 		jQuery.browser.name = "Chrome";
-		jQuery.browser.fullVersion = nAgt.substring(verOffset+7);
+		jQuery.browser.fullVersion = nAgt.substring(verOffset + 7);
 	}
 
 // Android stock browser
-	else if ( ((nAgt.indexOf('mozilla/5.0') > -1 && nAgt.indexOf('android ') > -1 && nAgt.indexOf('applewebkit') > -1) && !(nAgt.indexOf('chrome') > -1)) ) {
+	else if (((nAgt.indexOf('mozilla/5.0') > -1 && nAgt.indexOf('android ') > -1 && nAgt.indexOf('applewebkit') > -1) && !(nAgt.indexOf('chrome') > -1))) {
 
-		verOffset=nAgt.indexOf("Chrome");
+		verOffset = nAgt.indexOf("Chrome");
 		jQuery.browser.webkit = true;
 		jQuery.browser.androidStock = true;
 		jQuery.browser.name = "androidStock";
-		jQuery.browser.fullVersion = nAgt.substring(verOffset+7);
+		jQuery.browser.fullVersion = nAgt.substring(verOffset + 7);
 	}
 
 // In Safari, the true version is after "Safari" or after "Version"
-	else if ((verOffset=nAgt.indexOf("Safari"))!=-1) {
+	else if ((verOffset = nAgt.indexOf("Safari")) != -1) {
 		jQuery.browser.webkit = true;
 		jQuery.browser.safari = true;
 		jQuery.browser.name = "Safari";
-		jQuery.browser.fullVersion = nAgt.substring(verOffset+7);
-		if ((verOffset=nAgt.indexOf("Version"))!=-1)
-			jQuery.browser.fullVersion = nAgt.substring(verOffset+8);
+		jQuery.browser.fullVersion = nAgt.substring(verOffset + 7);
+		if ((verOffset = nAgt.indexOf("Version")) != -1)
+			jQuery.browser.fullVersion = nAgt.substring(verOffset + 8);
 	}
 
 // In Safari, the true version is after "Safari" or after "Version"
-	else if ((verOffset=nAgt.indexOf("AppleWebkit"))!=-1) {
+	else if ((verOffset = nAgt.indexOf("AppleWebkit")) != -1) {
 		jQuery.browser.webkit = true;
 		jQuery.browser.safari = true;
 		jQuery.browser.name = "Safari";
-		jQuery.browser.fullVersion = nAgt.substring(verOffset+7);
-		if ((verOffset=nAgt.indexOf("Version"))!=-1)
-			jQuery.browser.fullVersion = nAgt.substring(verOffset+8);
+		jQuery.browser.fullVersion = nAgt.substring(verOffset + 7);
+		if ((verOffset = nAgt.indexOf("Version")) != -1)
+			jQuery.browser.fullVersion = nAgt.substring(verOffset + 8);
 	}
 // In Firefox, the true version is after "Firefox"
-	else if ((verOffset=nAgt.indexOf("Firefox"))!=-1) {
+	else if ((verOffset = nAgt.indexOf("Firefox")) != -1) {
 		jQuery.browser.mozilla = true;
 		jQuery.browser.name = "Firefox";
-		jQuery.browser.fullVersion = nAgt.substring(verOffset+8);
+		jQuery.browser.fullVersion = nAgt.substring(verOffset + 8);
 	}
 
 // In most other browsers, "name/version" is at the end of userAgent
-	else if ( (nameOffset=nAgt.lastIndexOf(' ')+1) < (verOffset=nAgt.lastIndexOf('/')) ){
-		jQuery.browser.name = nAgt.substring(nameOffset,verOffset);
-		jQuery.browser.fullVersion = nAgt.substring(verOffset+1);
-		if (jQuery.browser.name.toLowerCase()==jQuery.browser.name.toUpperCase()) {
+	else if ((nameOffset = nAgt.lastIndexOf(' ') + 1) < (verOffset = nAgt.lastIndexOf('/'))) {
+		jQuery.browser.name = nAgt.substring(nameOffset, verOffset);
+		jQuery.browser.fullVersion = nAgt.substring(verOffset + 1);
+		if (jQuery.browser.name.toLowerCase() == jQuery.browser.name.toUpperCase()) {
 			jQuery.browser.name = navigator.appName;
 		}
 	}
 
 // trim the fullVersion string at semicolon/space if present
-	if ((ix=jQuery.browser.fullVersion.indexOf(";"))!=-1)
-		jQuery.browser.fullVersion=jQuery.browser.fullVersion.substring(0,ix);
-	if ((ix=jQuery.browser.fullVersion.indexOf(" "))!=-1)
-		jQuery.browser.fullVersion=jQuery.browser.fullVersion.substring(0,ix);
+	if ((ix = jQuery.browser.fullVersion.indexOf(";")) != -1)
+		jQuery.browser.fullVersion = jQuery.browser.fullVersion.substring(0, ix);
+	if ((ix = jQuery.browser.fullVersion.indexOf(" ")) != -1)
+		jQuery.browser.fullVersion = jQuery.browser.fullVersion.substring(0, ix);
 
-	jQuery.browser.majorVersion = parseInt(''+jQuery.browser.fullVersion,10);
+	jQuery.browser.majorVersion = parseInt('' + jQuery.browser.fullVersion, 10);
 	if (isNaN(jQuery.browser.majorVersion)) {
-		jQuery.browser.fullVersion  = ''+parseFloat(navigator.appVersion);
-		jQuery.browser.majorVersion = parseInt(navigator.appVersion,10);
+		jQuery.browser.fullVersion = '' + parseFloat(navigator.appVersion);
+		jQuery.browser.majorVersion = parseInt(navigator.appVersion, 10);
 	}
 	jQuery.browser.version = jQuery.browser.majorVersion;
 
