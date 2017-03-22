@@ -90,8 +90,9 @@ if (!jQuery.browser) {
 		jQuery.browser.name = "Microsoft Edge";
 		jQuery.browser.fullVersion = nAgt.substring(verOffset + 5);
 	}
+
 // In Chrome, the true version is after "Chrome"
-	else if ((verOffset = nAgt.indexOf("Chrome")) != -1 && nAgt.indexOf("Edge") == 0) {
+	else if ((verOffset = nAgt.indexOf("Chrome")) != -1) {
 		jQuery.browser.webkit = true;
 		jQuery.browser.chrome = true;
 		jQuery.browser.name = "Chrome";
