@@ -45,6 +45,59 @@ if (!jQuery.browser) {
 	jQuery.browser.msie = false;
 	jQuery.browser.edge = false;
 
+	var getOS = function(){
+
+		var os = {};
+		os.name = "Unknown OS";
+		if (navigator.appVersion.indexOf("Win")!=-1)
+			os.name="Windows";
+		if (navigator.appVersion.indexOf("Mac")!=-1)
+			os.name="Mac";
+		if (navigator.appVersion.indexOf("Linux")!=-1)
+			os.name="Linux";
+
+		os.version = "Unknown version";
+
+		/**
+		 * MAC
+		 */
+		if (/Mac OS X/.test(nAgt)) {
+			os.version = /Mac OS X (10[\.\_\d]+)/.exec(nAgt)[1];
+			os.version = os.version.replace(/_/g, ".").substring(0,5);
+		}
+
+		/**
+		 * WIN
+		 */
+
+		if (/Windows NT 5.1/.test(nAgt))
+			os.version = "5.1"; // XP
+		if (/Windows NT 6.0/.test(nAgt))
+			os.version = "6.0"; // Vista
+		if (/Windows NT 6.1/.test(nAgt))
+			os.version = "6.1"; // 7
+		if (/Windows NT 6.2/.test(nAgt))
+			os.version = "6.2"; // 8
+		if (/Windows NT 10.0/.test(nAgt))
+			os.version = "10.0"; // 10
+
+		/**
+		 * LINUX
+		 */
+
+		if (/Linux/.test(nAgt) && /Linux/.test(nAgt))
+			os.version = /Android ([\.\_\d]+)/.exec(nAgt)[1];
+
+		os.name = os.name.toLowerCase();
+		os.major_version = parseFloat(os.version.split(".")[0]);
+		os.minor_version = parseFloat(os.version.split(".")[1]);
+
+		return os;
+	};
+
+	jQuery.browser.os = getOS();
+
+
 	jQuery.browser.hasTouch = isTouchSupported();
 
 	jQuery.browser.ua = nAgt;
@@ -128,6 +181,7 @@ if (!jQuery.browser) {
 		if ((verOffset = nAgt.indexOf("Version")) != -1)
 			jQuery.browser.fullVersion = nAgt.substring(verOffset + 8);
 	}
+
 // In Firefox, the true version is after "Firefox"
 	else if ((verOffset = nAgt.indexOf("Firefox")) != -1) {
 		jQuery.browser.mozilla = true;

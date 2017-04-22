@@ -25,22 +25,24 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>mb.browser</title>
 
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
-    <script type="text/javascript" src="inc/jquery.mb.browser.min.js"></script>
-    <script type="text/javascript">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <script src="inc/jquery.mb.browser.js"></script>
+    <script>
 
-        $(function(){
+        $(function () {
             var txt = ''
-                    +'jQuery.browser.ua  = '+jQuery.browser.ua+'<br>'
-                    +'jQuery.browser.name  = '+jQuery.browser.name+'<br>'
-                    +'jQuery.browser.fullVersion  = '+jQuery.browser.fullVersion+'<br>'
-                    +'jQuery.browser.version = '+jQuery.browser.version+'<br><br><br>'
-                    +'jQuery.browser.msie = '+jQuery.browser.msie+'<br>'
-                    +'jQuery.browser.mozilla = '+jQuery.browser.mozilla+'<br>'
-                    +'jQuery.browser.opera = '+jQuery.browser.opera+'<br>'
-                    +'jQuery.browser.webkit = '+jQuery.browser.webkit+'<br>'
-                    +'jQuery.browser.safari = '+jQuery.browser.safari+'<br>'
-                    +'jQuery.browser.chrome = '+jQuery.browser.chrome+'<br>';
+                    + 'jQuery.browser.ua  = ' + jQuery.browser.ua + '<br>'
+                    + 'jQuery.browser.name  = ' + jQuery.browser.name + '<br>'
+                    + 'jQuery.browser.fullVersion  = ' + jQuery.browser.fullVersion + '<br>'
+                    + 'jQuery.browser.version = ' + jQuery.browser.version + '<br><br><br>'
+                    + 'jQuery.browser.msie = ' + jQuery.browser.msie + '<br>'
+                    + 'jQuery.browser.mozilla = ' + jQuery.browser.mozilla + '<br>'
+                    + 'jQuery.browser.opera = ' + jQuery.browser.opera + '<br>'
+                    + 'jQuery.browser.webkit = ' + jQuery.browser.webkit + '<br>'
+                    + 'jQuery.browser.safari = ' + jQuery.browser.safari + '<br>'
+                    + 'jQuery.browser.chrome = ' + jQuery.browser.chrome + '<br>'
+                    + 'jQuery.browser.os.name = ' + jQuery.browser.os.name + '<br>'
+                    + 'jQuery.browser.os.version = ' + jQuery.browser.os.version + '<br>';
 
             $("#result").html(txt);
 
@@ -48,7 +50,7 @@
 
     </script>
 </head>
-<body >
+<body>
 <div class="wrapper">
     <h1>mb.browser.demo</h1>
 
