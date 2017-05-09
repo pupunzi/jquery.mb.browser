@@ -48,20 +48,22 @@ if (!jQuery.browser) {
 	var getOS = function(){
 
 		var os = {};
+		os.version = "Unknown version";
+
 		os.name = "Unknown OS";
 		if (navigator.appVersion.indexOf("Win")!=-1)
 			os.name="Windows";
-		if (navigator.appVersion.indexOf("Mac")!=-1)
+		if (navigator.appVersion.indexOf("Mac")!=-1 && !navigator.appVersion.indexOf("Mobile"))
 			os.name="Mac";
 		if (navigator.appVersion.indexOf("Linux")!=-1)
 			os.name="Linux";
 
-		os.version = "Unknown version";
+		os.name = os.name.toLowerCase();
 
 		/**
 		 * MAC
 		 */
-		if (/Mac OS X/.test(nAgt)) {
+		if (os.name == "mac") {
 			os.version = /Mac OS X (10[\.\_\d]+)/.exec(nAgt)[1];
 			os.version = os.version.replace(/_/g, ".").substring(0,5);
 		}
@@ -69,6 +71,9 @@ if (!jQuery.browser) {
 		/**
 		 * WIN
 		 */
+
+		if (os.name == "windows")
+			os.version = "Unknown.Unknown";
 
 		if (/Windows NT 5.1/.test(nAgt))
 			os.version = "5.1"; // XP
@@ -85,22 +90,28 @@ if (!jQuery.browser) {
 		 * LINUX
 		 */
 
-		if (/Linux/.test(nAgt) && /Linux/.test(nAgt))
-			os.version = /Android ([\.\_\d]+)/.exec(nAgt)[1];
 
-		os.name = os.name.toLowerCase();
-		os.major_version = parseFloat(os.version.split(".")[0]);
-		os.minor_version = parseFloat(os.version.split(".")[1]);
+		// Mozilla/5.0 (X11; U; Linux x86_64; en-us) AppleWebKit/531.2+ (KHTML, like Gecko) Version/5.0 Safari/531.2+
+		if (/Linux/.test(nAgt) && /Linux/.test(nAgt))
+			os.version = "Unknown.Unknown";
+
+
+		os.major_version = "Unknown";
+		os.minor_version = "Unknown";
+
+		if(os.version != "Unknown.Unknown"){
+			os.major_version = parseFloat(os.version.split(".")[0]);
+			os.minor_version = parseFloat(os.version.split(".")[1]);
+		}
 
 		return os;
 	};
 
+	jQuery.browser.ua = nAgt;
+
 	jQuery.browser.os = getOS();
-
-
 	jQuery.browser.hasTouch = isTouchSupported();
 
-	jQuery.browser.ua = nAgt;
 
 	jQuery.browser.name = navigator.appName;
 	jQuery.browser.fullVersion = '' + parseFloat(navigator.appVersion);
@@ -211,19 +222,40 @@ if (!jQuery.browser) {
 	}
 	jQuery.browser.version = jQuery.browser.majorVersion;
 
+
+	/*Check all mobile environments*/
+	jQuery.browser.android = (/Android/i).test(nAgt);
+	jQuery.browser.blackberry = /BlackBerry|BB|PlayBook/i.test(nAgt);
+	jQuery.browser.ios = /iPhone|iPad|iPod|webOS/i.test(nAgt);
+	jQuery.browser.operaMobile = (/Opera Mini/i).test(nAgt);
+	jQuery.browser.windowsMobile = /IEMobile|Windows Phone/i.test(nAgt);
+	jQuery.browser.kindle = /Kindle|Silk/i.test(nAgt);
+
+	jQuery.browser.mobile = jQuery.browser.android || jQuery.browser.blackberry || jQuery.browser.ios || jQuery.browser.windowsMobile || jQuery.browser.operaMobile || jQuery.browser.kindle;
+
+	jQuery.isMobile = jQuery.browser.mobile;
+	jQuery.isTablet = jQuery.browser.mobile && jQuery(window).width() > 765;
+
+	jQuery.isAndroidDefault = jQuery.browser.android && !(/chrome/i).test(nAgt);
+
 }
 
-/*Check all mobile environments*/
-jQuery.browser.android = (/Android/i).test(nAgt);
-jQuery.browser.blackberry = /BlackBerry|BB|PlayBook/i.test(nAgt);
-jQuery.browser.ios = /iPhone|iPad|iPod|webOS/i.test(nAgt);
-jQuery.browser.operaMobile = (/Opera Mini/i).test(nAgt);
-jQuery.browser.windowsMobile = /IEMobile|Windows Phone/i.test(nAgt);
-jQuery.browser.kindle = /Kindle|Silk/i.test(nAgt);
+jQuery.browser.versionCompare = function(left, right) {
 
-jQuery.browser.mobile = jQuery.browser.android || jQuery.browser.blackberry || jQuery.browser.ios || jQuery.browser.windowsMobile || jQuery.browser.operaMobile || jQuery.browser.kindle;
+	if (typeof left + typeof right != 'stringstring')
+		return false;
 
-jQuery.isMobile = jQuery.browser.mobile;
-jQuery.isTablet = jQuery.browser.mobile && jQuery(window).width() > 765;
+	var a = left.split('.')
+			,   b = right.split('.')
+			,   i = 0, len = Math.max(a.length, b.length);
 
-jQuery.isAndroidDefault = jQuery.browser.android && !(/chrome/i).test(nAgt);
+	for (; i < len; i++) {
+		if ((a[i] && !b[i] && parseInt(a[i]) > 0) || (parseInt(a[i]) > parseInt(b[i]))) {
+			return 1;
+		} else if ((b[i] && !a[i] && parseInt(b[i]) > 0) || (parseInt(a[i]) < parseInt(b[i]))) {
+			return -1;
+		}
+	}
+
+	return 0;
+};
