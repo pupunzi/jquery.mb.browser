@@ -53,7 +53,7 @@ var getOS = function(){
 	os.name = "Unknown OS";
 	if (navigator.appVersion.indexOf("Win")!=-1)
 		os.name="Windows";
-	if (navigator.appVersion.indexOf("Mac")!=-1 && !navigator.appVersion.indexOf("Mobile")!=-1)
+	if (navigator.appVersion.indexOf("Mac")!=-1 && navigator.appVersion.indexOf("Mobile") < 0)
 		os.name="Mac";
 	if (navigator.appVersion.indexOf("Linux")!=-1)
 		os.name="Linux";
@@ -61,7 +61,7 @@ var getOS = function(){
 	/**
 	 * MAC
 	 */
-	if (/Mac OS X/.test(nAgt)) {
+	if (/Mac OS X/.test(nAgt) && !/Mobile/.test(nAgt)) {
 		os.version = /Mac OS X (10[\.\_\d]+)/.exec(nAgt)[1];
 		os.version = os.version.replace(/_/g, ".").substring(0,5);
 	}
