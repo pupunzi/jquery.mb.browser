@@ -49,8 +49,8 @@ var getOS = function(){
 
 	var os = {};
 	os.version = "Unknown version";
-
 	os.name = "Unknown OS";
+	
 	if (navigator.appVersion.indexOf("Win")!=-1)
 		os.name="Windows";
 	if (navigator.appVersion.indexOf("Mac")!=-1 && navigator.appVersion.indexOf("Mobile") < 0)
@@ -217,11 +217,11 @@ jQuery.browser.version = jQuery.browser.majorVersion;
 
 /*Check all mobile environments*/
 jQuery.browser.android = (/Android/i).test(nAgt);
-jQuery.browser.blackberry = /BlackBerry|BB|PlayBook/i.test(nAgt);
-jQuery.browser.ios = /iPhone|iPad|iPod|webOS/i.test(nAgt);
+jQuery.browser.blackberry = (/BlackBerry|BB|PlayBook/i).test(nAgt);
+jQuery.browser.ios = (/iPhone|iPad|iPod|webOS/i).test(nAgt);
 jQuery.browser.operaMobile = (/Opera Mini/i).test(nAgt);
-jQuery.browser.windowsMobile = /IEMobile|Windows Phone/i.test(nAgt);
-jQuery.browser.kindle = /Kindle|Silk/i.test(nAgt);
+jQuery.browser.windowsMobile = (/IEMobile|Windows Phone/i).test(nAgt);
+jQuery.browser.kindle = (/Kindle|Silk/i).test(nAgt);
 
 jQuery.browser.mobile = jQuery.browser.android || jQuery.browser.blackberry || jQuery.browser.ios || jQuery.browser.windowsMobile || jQuery.browser.operaMobile || jQuery.browser.kindle;
 
