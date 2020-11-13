@@ -62,7 +62,7 @@ var getOS = function(){
 	 * MAC
 	 */
 	if (/Mac OS X/.test(nAgt) && !/Mobile/.test(nAgt)) {
-		os.version = /Mac OS X (10[\.\_\d]+)/.exec(nAgt)[1];
+		os.version = /Mac OS X ([\.\_\d]+)/.exec(nAgt)[1];
 		os.version = os.version.replace(/_/g, ".").substring(0,5);
 	}
 
