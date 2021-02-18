@@ -1,0 +1,62 @@
+<!doctype html>
+
+<!--–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+  jquery.mb.components                                                                                                                              –
+                                                                                                                                                    –
+  file: demo-mbBrowser.html                                                                                                                         –
+  last modified: 10/31/18 7:44 PM                                                                                                                   –
+                                                                                                                                                    –
+  Open Lab s.r.l., Florence - Italy                                                                                                                 –
+                                                                                                                                                    –
+  email: matteo@open-lab.com                                                                                                                        –
+  site: http://pupunzi.com                                                                                                                          –
+        http://open-lab.com                                                                                                                         –
+  blog: http://pupunzi.open-lab.com                                                                                                                 –
+  Q&A:  http://jquery.pupunzi.com                                                                                                                   –
+                                                                                                                                                    –
+  Licences: MIT, GPL                                                                                                                                –
+     http://www.opensource.org/licenses/mit-license.php                                                                                             –
+     http://www.gnu.org/licenses/gpl.html                                                                                                           –
+                                                                                                                                                    –
+  Copyright (c) 2001-2021. Matteo Bicocchi (Pupunzi);                                                                                               –
+  –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––-->
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>mb.browser</title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <script src="inc/jquery.mbBrowser.js"></script>
+    <script>
+
+        $(function () {
+            var txt = ''
+                    + 'jQuery.mbBrowser.ua  = ' + jQuery.mbBrowser.ua + '<br>'
+                    + 'jQuery.mbBrowser.name  = ' + jQuery.mbBrowser.name + '<br>'
+                    + 'jQuery.mbBrowser.fullVersion  = ' + jQuery.mbBrowser.fullVersion + '<br>'
+                    + 'jQuery.mbBrowser.version = ' + jQuery.mbBrowser.version + '<br><br><br>'
+                    + 'jQuery.mbBrowser.msie = ' + jQuery.mbBrowser.msie + '<br>'
+                    + 'jQuery.mbBrowser.mozilla = ' + jQuery.mbBrowser.mozilla + '<br>'
+                    + 'jQuery.mbBrowser.opera = ' + jQuery.mbBrowser.opera + '<br>'
+                    + 'jQuery.mbBrowser.webkit = ' + jQuery.mbBrowser.webkit + '<br>'
+                    + 'jQuery.mbBrowser.safari = ' + jQuery.mbBrowser.safari + '<br>'
+                    + 'jQuery.mbBrowser.chrome = ' + jQuery.mbBrowser.chrome + '<br>'
+                    + 'jQuery.mbBrowser.os.name = ' + jQuery.mbBrowser.os.name + '<br>'
+                    + 'jQuery.mbBrowser.os.version = ' + jQuery.mbBrowser.os.version + '<br>';
+
+            $("#result").html(txt);
+
+        });
+
+    </script>
+</head>
+<body>
+<div class="wrapper">
+    <h1>mb.browser.demo</h1>
+
+    <div id="result"></div>
+</div>
+
+</body>
+</html>
